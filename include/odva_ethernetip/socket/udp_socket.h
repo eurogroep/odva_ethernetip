@@ -89,8 +89,7 @@ public:
   virtual size_t receive(mutable_buffer buf)
   {
     // have to make this into a sequence or the templating engine throws a fit
-    udp::endpoint ep;
-    return socket_.receive_from(mutable_buffers_1(buf), ep);
+    return socket_.receive_from(mutable_buffers_1(buf), remote_endpoint_);
   }
 
 private:
